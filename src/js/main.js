@@ -8,10 +8,10 @@ import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/+esm'
 Chart.register(ChartDataLabels);
 
 const svgIconGreen = new Image();
-svgIconGreen.src = './assets/images/green-icon.svg';
+svgIconGreen.src = 'assets/images/green-icon.svg';
 
 const svgIconBlue = new Image();
-svgIconBlue.src = './assets/images/blue-icon.svg';
+svgIconBlue.src = 'assets/images/blue-icon.svg';
 
 function createGradientPlugin() {
   return {
@@ -93,7 +93,7 @@ function initPdfViewer() {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/build/pdf.worker.min.mjs';
 
-  const url = './table-desktop.pdf';
+  const url = 'assets/files/table-desktop.pdf';
 
   pdfjsLib.getDocument(url).promise.then(pdf => {
     pdf.getPage(1).then(page => {
@@ -152,8 +152,10 @@ function main() {
   initPdfViewer();
 }
 
+main();
+
 (function() {
-  main();
+  
 
   document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {

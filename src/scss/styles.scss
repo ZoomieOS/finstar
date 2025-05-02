@@ -74,15 +74,16 @@ button {
 }
 
 .bg-banner-top {
-    background-image: url('./assets/images/bg-circle-mob-2.png');
+    background-image: url('assets/images/bg-circle-mob-2.png');
     background-repeat: no-repeat;
     position: absolute;
     right: 0;
     width: 50%;
     height: 50%;
+    z-index: -1;
 
     @media screen and (min-width: 768px) {
-        background-image: url('./assets/images/bg-circle-2.png');
+        background-image: url('assets/images/bg-circle-2.png');
         left: 0;
         width: 100%;
         height: 100%;
