@@ -3,14 +3,9 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import Chart from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/+esm';
 
 import greenIconUrl from '../assets/images/green-icon.svg';
 import blueIconUrl from '../assets/images/blue-icon.svg';
-
-import pdfUrl from '../assets/files/table-desktop.pdf';
-
-const urlToFile = pdfUrl;
 
 Chart.register(ChartDataLabels);
 
@@ -96,34 +91,6 @@ function createChart(ctx, labels, greenData, blueData) {
   });
 }
 
-function initPdfViewer() {
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/build/pdf.worker.min.mjs';
-
-  pdfjsLib.getDocument(urlToFile).promise.then(pdf => {
-    pdf.getPage(1).then(page => {
-      const scale = 1;
-      const viewport = page.getViewport({ scale });
-
-      const canvas = document.getElementById('pdf-canvas');
-      const context = canvas.getContext('2d');
-
-      context.fillStyle = "white";
-      context.fillRect(0, 0, viewport.width, viewport.height);
-
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport,
-      };
-
-      page.render(renderContext);
-    });
-  });
-}
-
 function main() {
   const canvasBefore = document.getElementById("pai-current");
   const ctxBefore = canvasBefore.getContext("2d");
@@ -153,8 +120,6 @@ function main() {
 
   const chartAfter = createChart(ctxAfter, afterLabels, afterGreenData, afterBlueData);
   requestAnimationFrame(() => chartAfter.update());
-
-  initPdfViewer();
 }
 
 main();
