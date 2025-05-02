@@ -93,7 +93,7 @@ function initPdfViewer() {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/build/pdf.worker.min.mjs';
 
-  const url = './assets/files/table-desktop.pdf';
+  const url = './table-desktop.pdf';
 
   pdfjsLib.getDocument(url).promise.then(pdf => {
     pdf.getPage(1).then(page => {
