@@ -5,13 +5,20 @@ import Chart from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/+esm';
 
+import greenIconUrl from '../assets/images/green-icon.svg';
+import blueIconUrl from '../assets/images/blue-icon.svg';
+
+import pdfUrl from '../assets/files/table-desktop.pdf';
+
+const urlToFile = pdfUrl;
+
 Chart.register(ChartDataLabels);
 
 const svgIconGreen = new Image();
-svgIconGreen.src = '/assets/images/green-icon.svg';
+svgIconGreen.src = greenIconUrl;
 
 const svgIconBlue = new Image();
-svgIconBlue.src = '/assets/images/blue-icon.svg';
+svgIconBlue.src = blueIconUrl;
 
 function createGradientPlugin() {
   return {
@@ -93,9 +100,7 @@ function initPdfViewer() {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.2.133/build/pdf.worker.min.mjs';
 
-  const url = '/assets/files/table-desktop.pdf';
-
-  pdfjsLib.getDocument(url).promise.then(pdf => {
+  pdfjsLib.getDocument(urlToFile).promise.then(pdf => {
     pdf.getPage(1).then(page => {
       const scale = 1;
       const viewport = page.getViewport({ scale });
