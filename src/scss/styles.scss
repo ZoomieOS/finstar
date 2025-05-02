@@ -418,3 +418,12 @@ button {
         border-color: #23CC50;
     }
 }
+
+#custom-tooltip-before,
+#custom-tooltip-after {
+    position: absolute;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+}

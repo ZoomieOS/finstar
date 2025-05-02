@@ -4,18 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <title>Финстар Капитал — инвестиции в ЗПИФ «Залоговые займы»</title>
-  
+
   <!-- SEO -->
-  <meta name="description" content="Финстар Капитал — инвестиции в закрытые паевые фонды (ЗПИФ), обеспеченные залогами. Доходность от 30% годовых.">
-  <meta name="keywords" content="Финстар Капитал, ЗПИФ, инвестиции, закрытый паевой фонд, залоговые займы, доходность, финансы">
+  <meta name="description"
+    content="Финстар Капитал — инвестиции в закрытые паевые фонды (ЗПИФ), обеспеченные залогами. Доходность от 30% годовых.">
+  <meta name="keywords"
+    content="Финстар Капитал, ЗПИФ, инвестиции, закрытый паевой фонд, залоговые займы, доходность, финансы">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Финстар Капитал">
 
   <!-- Open Graph (для соцсетей) -->
   <meta property="og:title" content="Финстар Капитал — инвестиции в ЗПИФ">
-  <meta property="og:description" content="Инвестируйте в залоговые займы через ЗПИФ. Надёжность, высокая доходность, профессиональное управление.">
+  <meta property="og:description"
+    content="Инвестируйте в залоговые займы через ЗПИФ. Надёжность, высокая доходность, профессиональное управление.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yourdomain.ru/"> <!-- укажи актуальный домен -->
   <meta property="og:image" content="https://yourdomain.ru/assets/images/og-image.jpg"> <!-- желательно 1200x630 -->
@@ -34,24 +37,25 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
       <div class="container">
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" id="burgerToggle">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
+          id="burgerToggle">
           <span class="navbar-toggler-icon"></span>
         </button>
-  
+
         <a class="navbar-brand d-lg-none mx-auto" href="#">
           <img src="/assets/images/logo-mobile.png" alt="Финстар Капитал" class="logo">
         </a>
-  
+
         <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center align-items-center">
           <ul class="navbar-nav d-flex flex-row align-items-center gap-4">
             <li class="nav-item"><a class="nav-link" href="#">График СЧА</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Преимущества</a></li>
           </ul>
-  
+
           <a class="navbar-brand px-4" href="#">
             <img src="/assets/images/logo.png" alt="Финстар Капитал" class="logo">
           </a>
-  
+
           <ul class="navbar-nav d-flex flex-row align-items-center gap-4">
             <li class="nav-item"><a class="nav-link" href="#">Формат инвестиций</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
@@ -59,10 +63,11 @@
         </div>
       </div>
     </nav>
-  
+
     <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="offcanvasMenu">
-      <button type="button" class="btn-close position-absolute top-0 start-0 m-3" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-  
+      <button type="button" class="btn-close position-absolute top-0 start-0 m-3" data-bs-dismiss="offcanvas"
+        aria-label="Закрыть"></button>
+
       <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
         <div class="mt-auto text-center pt-5">
           <a class="nav-link mb-4" href="#">График СЧА</a>
@@ -70,10 +75,10 @@
           <a class="nav-link mb-4" href="#">Формат инвестиций</a>
           <a class="nav-link mb-4" href="#">Контакты</a>
         </div>
-      
+
         <div class="contacts mt-auto text-center pt-5">
           <a href="tel:+74957455557" class="mb-0 text-black text-decoration-none">+7 495 745-55-57</p>
-          <a href="mailto:info@finstar-capital.ru" class="text-black text-decoration-none">info@finstar-capital.ru</a>
+            <a href="mailto:info@finstar-capital.ru" class="text-black text-decoration-none">info@finstar-capital.ru</a>
         </div>
       </div>
     </div>
@@ -122,6 +127,9 @@
           <h2 class="pb-1 mb-3 pb-lg-4 mb-lg-5 fw-semibold">График СЧА и стоимости пая в динамике</h1>
 
             <canvas id="pai-current" style="height: 444px; width: 100%;"></canvas>
+            <div id="custom-tooltip-before"
+              style="opacity: 0;">
+            </div>
         </div>
     </section>
 
@@ -130,6 +138,9 @@
         <div class="col-12 col">
           <h2 class="pb-1 mb-3 pb-lg-4 mb-lg-5 fw-semibold">График СЧА и стоимости пая в динамике, прогноз</h1>
 
+            <div id="custom-tooltip-after"
+              style="opacity: 0;">
+            </div>
             <canvas id="pai-after" style="height: 600px; width: 100%;"></canvas>
         </div>
     </section>
@@ -209,8 +220,8 @@
 
       <div class="info-alert rounded-4 py-4 fs-5 fw-medium d-block d-lg-none">
         <img src="/assets/images/pdf-icon.svg" alt="PDF" class="me-3" width="32" height="41">
-        <a href="/table.pdf" class="text-decoration-none text-black" >Скачать таблицу</a>
-        </div>
+        <a href="/table.pdf" class="text-decoration-none text-black">Скачать таблицу</a>
+      </div>
     </section>
 
     <section id="advantages" class="container py-3 py-lg-5">
@@ -220,7 +231,8 @@
         </div>
         <div class="col-lg-5">
           <h3 class="heading fs-1 fw-semibold mb-4 mt-lg-5 mb-lg-4">Хотите узнать больше?</h3>
-          <p class="info">Для того, чтобы более подробно ознакомиться с предложением (финансовый план, расчёт вашей доходности и
+          <p class="info">Для того, чтобы более подробно ознакомиться с предложением (финансовый план, расчёт вашей
+            доходности и
             договор с гарантиями) - напишите в WhatsApp или отсканируйте QR-код.</p>
           <div class="d-flex justify-content-around justify-content-lg-start mb-4">
             <button class="btn btn-lg secondary d-block d-lg-none rounded-3 px-4 fs-4">Контакты</button>
@@ -465,9 +477,10 @@
           <form>
             <input type="text" class="form-control custom mb-2 py-3 rounded-3" placeholder="Дарья" required />
             <input type="tel" class="form-control custom mb-2 py-3 rounded-3" placeholder="+7 705 184 71 28" required />
-            <input type="email" class="form-control custom mb-2 py-3 rounded-3" placeholder="example@mail.com" required />
+            <input type="email" class="form-control custom mb-2 py-3 rounded-3" placeholder="example@mail.com"
+              required />
             <textarea class="form-control custom mb-2 rounded-3" rows="2" placeholder="Пример текста"></textarea>
-  
+
             <div class="form-check mb-3 d-flex align-items-start gap-2">
               <input class="form-check-input custom-check mt-1" type="checkbox" id="consentCheckbox" required />
               <label class="form-check-label small" for="consentCheckbox">
@@ -475,7 +488,7 @@
                 <a href="#" target="_blank">обработку моих персональных данных</a>
               </label>
             </div>
-  
+
             <button type="submit" class="btn primary w-100 py-3 fw-semibold">
               Отправить заявку
             </button>
