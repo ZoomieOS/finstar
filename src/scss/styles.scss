@@ -427,3 +427,87 @@ button {
     border-radius: 100px;
     padding: 0.5rem 1rem;
 }
+
+.contacts-container {
+    padding: 0 20px
+}
+
+.contacts-info {
+    padding: 20px;
+    position: absolute;
+    bottom: 156px;
+    left: 26px;
+    background: #464646;
+    border-radius: 15px 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    color: #fff
+}
+
+.contacts-info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.contacts-info-item-img {
+    width: 20px;
+    height: 20px
+}
+
+.contacts-form {
+    position: absolute;
+    top: 83px;
+    right: 21px;
+    height: max-content;
+    width: 520px;
+    background: #464646;
+    border-radius: 0 15px 15px 15px;
+    padding: 28px 44px 28px 34px;
+    color: #fff
+}
+
+.contacts-form-title {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase
+}
+
+.contacts-form-description {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px
+}
+
+@media screen and (max-width: 1160px) {
+    .contacts-info,.contacts-form {
+        margin-top:20px;
+        width: 100%;
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 15px;
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .contacts-form {
+        margin-top: clamp(50px,10vw,100px)
+    }
+}

@@ -114,7 +114,7 @@ function createChart(ctx, labels, greenData, blueData) {
 
 function addHoverListener(chart, canvas) {
     let lastIndex = -1;
-  
+
     canvas.addEventListener("mousemove", (event) => {
       const points = chart.getElementsAtEventForMode(
         event,
@@ -123,12 +123,12 @@ function addHoverListener(chart, canvas) {
         false
       );
       const closestIndex = points.length ? points[0].index : -1;
-  
+
       if (closestIndex !== -1 && closestIndex !== lastIndex) {
         lastIndex = closestIndex;
-  
+
         const labels = chart.data.labels;
-  
+
         chart.options.plugins.annotation.annotations = {
           highlightLine: {
             type: "line",
@@ -138,7 +138,7 @@ function addHoverListener(chart, canvas) {
             borderWidth: 1,
           },
         };
-  
+
         chart.options.scales.x.ticks = {
           callback: function (value, index) {
             return index === closestIndex ? this.getLabelForValue(value) : labels[index];
@@ -148,7 +148,7 @@ function addHoverListener(chart, canvas) {
             weight: context.index === closestIndex ? "700" : "300",
           }),
         };
-  
+
         chart.update("none"); // Без анимации
       }
     });
@@ -156,26 +156,26 @@ function addHoverListener(chart, canvas) {
 
 function addHoverLabel(canvas, chart, tooltipId) {
     const tooltipElement = document.getElementById(tooltipId);
-  
+
     canvas.addEventListener("mousemove", (event) => {
       const { scales } = chart;
       const x = event.offsetX;
       const y = event.offsetY;
-  
+
       const xValue = scales.x.getValueForPixel(x);
       const index = Math.round(xValue);
-  
+
       if (index < 0 || index >= chart.data.labels.length) {
         tooltipElement.style.opacity = 0;
         return;
       }
-  
+
       const greenYValue = chart.data.datasets[0].data[index];
       const blueYValue = chart.data.datasets[1].data[index];
-  
+
       const greenY = scales.y.getPixelForValue(greenYValue);
       const blueY = scales.y.getPixelForValue(blueYValue);
-  
+
       let text = "";
       if (y <= greenY) {
         text = "Стоимость пая, руб.";
@@ -185,7 +185,7 @@ function addHoverLabel(canvas, chart, tooltipId) {
         tooltipElement.style.opacity = 0;
         return;
       }
-  
+
       tooltipElement.innerHTML = text;
       tooltipElement.style.left = event.pageX + "px";
       tooltipElement.style.top = event.pageY - 20 + "px";
@@ -258,11 +258,16 @@ addHoverLabel(canvasAfter, chartAfter, "custom-tooltip-after");
 main();
 
 (function () {
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      const modalElement = document.getElementById("formModal");
-      const modal = new bootstrap.Modal(modalElement);
-      modal.show();
-    }, 10); // 40 000 миллисекунд = 40 секунд
-  });
+  const formInvests = document.getElementById("form-invests");
+  const formBannerInvests = document.getElementById("form-banner-invests");
+  const modalElement = document.getElementById("formModal");
+  const modal = new bootstrap.Modal(modalElement);
+
+  formInvests.addEventListener("click", () => {
+    modal.show();
+  })
+
+  formBannerInvests.addEventListener("click", () => {
+    modal.show();
+  })
 })();
